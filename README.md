@@ -107,13 +107,17 @@ fn greet(Name: Required[string])
 release name: Required[string] = Console.ReadLine("What's your name: ")
 greet(name)
 ```
-# dicts
+# gosh darn lists
 here Pythonistas
 ```rasfix
-release mydict: Required[dict] = ["poop", "buttcam"]
-Console.PrintLine(mydict[1])
+release mylist: Required[list] = ["poop", "buttcam"]
+Console.PrintLine(mylist[1])
 ^^ slicing with [] also works like in python with one indexing!
 ^^ like this:
-Console.PrintLine(mydict[:1]) ^^ everything AFTER item one, and 1: for everything before one ✅
+Console.PrintLine(mylist[2:]) ^^ everything AFTER item 2 INCLUDING item 2, and :2 for everything before two INCLUDING two ✅
+```
+and before you scream at me...
+```rasfix
+", ".join(mylist)
 ```
 More to come in Changelog v1.2: **error handling (to all the pythonistas im sorry for adding rust style `match`), string handling, dict methods and bools (booleans)**
