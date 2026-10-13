@@ -145,6 +145,12 @@ color.pink()
 color.purple()
 ✅✅✅✅✅✅✅
 
+example:
+
+```rasfix
+release input: Required[string] = Console.ReadLine(color.bold(color.red("STFU!!!!?!!!!! "))) ^^ satire, and yes chaining works when u do it like me
+```
+
 # RUST STTLE ERROR HANDLIHG
 
 ```rasfix
@@ -183,6 +189,8 @@ Console.PrintLine(", ".join(parts))
 Other methods: `.lower()` `.len()` `.starts_with()` `.ends_with()` `.reverse()` `.repeat(n)` `.substr(start, len)`.
 **ONE INDEXED!** index_of gives you 0 when it finds nothing, because -1 isn't a position in this house.
 # dicts
+
+```rasfix
 release user: Required[dict] = {"name": "ras", "level": 5}
 Console.PrintLine(user["name"])
 user.insert("level", 6)
@@ -191,6 +199,7 @@ Console.PrintLine(user.keys())
 Console.PrintLine("level" in user)
 for k in user
     Console.PrintLine(k)
+```
 `.get(key)`, `.values()` and `.len()` also work. Missing keys give None, not a crash.
 bools
 `true`, `false`, `and`, `or`, `not`. Typing is strict now:
