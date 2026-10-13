@@ -121,3 +121,49 @@ and before you scream at me...
 ", ".join(mylist)
 ```
 More to come in Changelog v1.2: **error handling (to all the pythonistas im sorry for adding rust style `match`), string handling, dict methods and bools (booleans)**
+# Changelog v1.2 (Oct. 13 2026)
+Example error:
+```rasfix
+rasfix error greet, line 4, column 1
+   greet(name)
+   ^^^^^^^^^^^
+rferror, crashed at local timezone clock 5:00 PM UTC: undefined variable 'name'
+@this error was caught at runtime
+check for typos, function names, arguments, types (i.e. `release var: Annotation[type] = value` has wrong type as value compared to the type set in annotation)
+```
+# new
+
+COLOR YOU OUTPUTS YOOOOHOOOO!!!!
+
+color.red()
+color.bold()
+color.magenta()
+color.blue()
+color.bright_*()
+color.yellow()
+color.pink()
+color.purple()
+✅✅✅✅✅✅✅
+
+# RUST STTLE ERROR HANDLIHG
+
+```rasfix
+fn your_unsafe_function()
+    ^^ code...
+
+match Result<Success, Fail()>
+    Method[your_unsafe_function()]
+    ^^ calls the func, can be multi
+    case Success => Nothing() ^^ no-op
+    case Fail(err) => {
+        ^^ MULTILINE CODE HERE!!!
+        Event.Raise(Crash, "it broke!!!")
+        Console.PrintLine(err)
+    }
+
+^^ IMPORTANT NOTE: you DEFINE EVERY ACTION on EVERY CASE. the interpreter does NOTHING. not even a crash. you do it yourself.
+^^ can be used in vars too in release using type `expect` (NEW)
+```
+
+to C devs, TypeScript devs, Python devs and Rust devs im sorry for making an abomination
+actually. **GET F#CKED EVERYBODY THIS IS MY LANE!**
