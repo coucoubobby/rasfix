@@ -167,3 +167,67 @@ match Result<Success, Fail()>
 
 to C devs, TypeScript devs, Python devs and Rust devs im sorry for making an abomination
 actually. **GET F#CKED EVERYBODY THIS IS MY LANE!**
+
+# Changelog v1.3 (Oct. 13 2026)
+Yes, I said v1.2 would cover errors, strings, dicts and bools. Here is the rest, plus a few things that snuck in. 😤
+# string method that i forgot in 1.2
+```rasfix
+release s: Required[string] = "  Hello, World  "
+Console.PrintLine(s.trim().upper())
+^^ methods chain, like JS
+Console.PrintLine(s.contains("World"))
+Console.PrintLine(s.replace("World", "rasfix"))
+release parts: Required[list] = "a,b,c".split(",")
+Console.PrintLine(", ".join(parts))
+```
+Other methods: `.lower()` `.len()` `.starts_with()` `.ends_with()` `.reverse()` `.repeat(n)` `.substr(start, len)`.
+**ONE INDEXED!** index_of gives you 0 when it finds nothing, because -1 isn't a position in this house.
+# dicts
+release user: Required[dict] = {"name": "ras", "level": 5}
+Console.PrintLine(user["name"])
+user.insert("level", 6)
+user.remove("name")
+Console.PrintLine(user.keys())
+Console.PrintLine("level" in user)
+for k in user
+    Console.PrintLine(k)
+`.get(key)`, `.values()` and `.len()` also work. Missing keys give None, not a crash.
+bools
+`true`, `false`, `and`, `or`, `not`. Typing is strict now:
+```rasfix
+Console.PrintLine(5 == "5") ^^ false. no, python, we do not coerce.
+```
+try / catch / finally
+```rasfix
+try
+    throw "it broke!!!"
+catch err
+    Console.PrintLine("caught: " :: err)
+finally
+    Console.PrintLine("always runs")
+```
+`throw` raises, `catch` names the error, and `finally` runs no matter what. Skip the catch and the error crashes with a full traceback, like the one in v1.2. **USE THIS ONLY IF YOU ARE A COWARD. IN MY LANG WE DONT COWARD**
+
+# classes (finally)
+```rasfix
+class Animal
+    fn init(self, name: Required[string])
+        self.name = name
+    fn speak(self)
+        Console.PrintLine(self.name :: " makes a sound")
+
+class Dog -> Animal
+    fn speak(self)
+        Console.PrintLine(self.name :: " says woof")
+
+release d: Required[any] = Dog("Rex")
+d.speak()
+```
+Classes can't be annotations, so use `any`. -> Parent is inheritance. A leading _ on a method makes it private. Define `__str__` and `Console.PrintLine(obj)` uses it.
+stuff that snuck in
+`unchanging x: Required[int] = 5` freezes the name, the type and the value.
+yield is like return, but it keeps going and hands back a list of everything yielded.
+`Accessing[T]` borrows for real: `release r: Accessing[int] = &x`. Reassign `x` and `r` is dead, and rasfix refuses to run if you use it. (Yes, the rustaceans got their wish after all 😭)
+`json.parse()`, `json.stringify()`, `http.get(url)`, `import "file.rfx" as lib, sleep(n)`.
+`rasfix --pack script.rfx -o app` makes a standalone binary.
+More to come in Changelog v1.4: async/await, the rillow image module, --compile to ARM, and whatever else I break ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
